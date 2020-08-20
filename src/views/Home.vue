@@ -2,18 +2,18 @@
   <div class="home">
     <HomePageTimerButton/>
     <TimerPage/>
-    <HelloWorld/>
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HomePageTimerButton from "@/components/HomePageTimerButton.vue"
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HomePageTimerButton
   }
 }
 </script>

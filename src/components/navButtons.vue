@@ -1,14 +1,9 @@
 <template>
     <div id="nav">
     <div class="navContainer">
-      <router-link to="/Feature1">
+      <router-link to="/HomePageTimerButton">
       <img class="icon" alt="home icon" src="../assets/homebutton.png"/>
       </router-link>
-    </div>
-    <div class="navContainer">
-      <router-link to="/Feature2">
-        <img class="icon" alt="home icon" src="../assets/info.png">
-        </router-link>
     </div>
 
 </div>

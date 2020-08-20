@@ -4,10 +4,6 @@ import Home from '../views/Home.vue'
 import Timer from '../views/Timer.vue'
 import About from '../views/About.vue'
 
-import Feature1 from "../views/Feature1.vue"
-import Feature2 from "../views/Feature2.vue"
-
-
 Vue.use(VueRouter)
 
   const routes = [
@@ -26,11 +22,6 @@ Vue.use(VueRouter)
     name: 'Timer',
     component: Timer
   },
-  {
-  path: "/feature1",
-  name: "Feature 1",
-  component: Feature1
-  }
 ]
 
 const router = new VueRouter({
