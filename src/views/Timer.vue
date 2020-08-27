@@ -1,8 +1,9 @@
 <template>
 
   <div> 
+    <div id="main">
     <div class="header">
-      <h1>Timer Page</h1>
+      <h1 style="font-size: 8vw">Timer Page</h1>
     </div> 
         
       <div id="startButtonContainer">
@@ -15,6 +16,7 @@
         </div>
           <h1 class="timer"> {{Timer}} </h1>
       </div>
+  </div>
   </div>
 
 </template>
@@ -45,8 +47,20 @@ export default {
 
 <style scoped lang="scss">
 
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@600&display=swap');
+
+#main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #9c88ff; 
+}
+
 .header {
-  margin-top: 12px;
+  margin-top: 100px;
+  color: white;
+  font-family: 'Hind Madurai', sans-serif;
 }
 
 #startButtonContainer {
@@ -55,7 +69,6 @@ export default {
   align-items: center;
   margin-top: 12px;
   flex-direction: column;
-
 }
 
 .timerInput {
@@ -79,11 +92,12 @@ export default {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 4px; 
+  border-radius: 7px; 
+  margin: 8px;
+  width: 100px;
 }
-.startButton {
-  .button5 {padding: 16px;}
-}
+
+
 
 .resetButton {
   background-color: red; /* Red */
@@ -94,11 +108,26 @@ export default {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 4px; 
-}
-.resetButton {
-  .button5 {padding: 16px;}
+  border-radius: 7px; 
+  margin: 7px;
+  width: 100px;
 }
 
+.startButton:hover {
+  background-color: rgba(152, 248, 88, 0.795);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resetButton:hover {
+  background-color: rgb(175, 22, 22);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.timer {
+  color: white;
+  margin-top: 20px;
+}
 
 </style>
