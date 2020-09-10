@@ -1,19 +1,23 @@
 <template>
 <div id="main">
+
       <div id="welcome">
         <h1 style="font-size: 7vw;">Welcome, {{ name }}</h1>
       </div>
 
       <div class="timerCircleContainer">
             <div id="timerCircle">
-            <router-link to="/timer">
-            <p class="timerButton">START STUDYING</p>
-            </router-link>  
+
+              <router-link to="/timer">
+                <p class="timerButton">START STUDYING</p>
+              </router-link>  
+
             </div>
         
       </div>
+      
       <div class="footerContainer">
-      <h1 class="footer">Made with ❤️ at Tai Wananga Tu Toa.</h1>
+        <h1 class="footer">Made with ❤️ at Tai Wananga Tu Toa.</h1>
       </div>
 </div> 
 </template>
@@ -25,12 +29,14 @@ export default {
   },
   data() {
     return {
-      name: '*Person' + "'s" + " name*"
+      name: "Vikiani"
     }
   },
   methods: {
     getName() {
-      alert("What is your name?");
+      this.$prompt("Input your name").then((text) => {
+      
+});
     }
   } 
 }
@@ -111,6 +117,7 @@ accent color: #fbc531
   color: black;
   font-family: 'Roboto', sans-serif;
   font-size: 4vw;
+  margin-bottom: 12px;
 }
 
 .footerContainer {

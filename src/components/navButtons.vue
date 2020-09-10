@@ -1,9 +1,11 @@
 <template>
     <div id="nav">
     <div class="navContainer">
+
       <router-link to="/">
-      <img class="icon" alt="home icon" src="../assets/homebutton.png"/>
+        <img class="icon" alt="home icon" src="../assets/homebutton.png"/>
       </router-link>
+
     </div>
 
 </div>
@@ -27,17 +29,15 @@ export default {
 
     #nav {
         position: fixed;
-        bottom: 0;
-        width: 100%;
+        bottom: 20px;
+        width: 80%;
         display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .icon {
         margin-bottom: 30px;
-        margin-left: 5px;
+        margin-left: 0px;
         width: 50px;
         height: 50px;
         background-color: #9c88ff;
@@ -51,6 +51,8 @@ export default {
     }
 
     .navContainer {
-        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

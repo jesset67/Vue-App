@@ -2,6 +2,8 @@
 
   <div> 
     <div id="main">
+
+
     <div class="header">
       <h1 style="font-size: 8vw">Timer Page</h1>
     </div> 
@@ -11,10 +13,12 @@
           <input ref="timerInput" type="number" class="timerInput">
 
         <div class="buttons">
+
           <button class="startButton" @click="startTimer">Start</button>
+
           <button class="resetButton" @click="resetTimer">Reset</button>
         </div>
-          <h1 class="timer"> {{Timer}} </h1>
+
       </div>
   </div>
   </div>
@@ -29,12 +33,17 @@ export default {
   },
   data() {
     return {
-      Timer: 0
+      time: 0
     }
   },
   methods: {
     startTimer() {
-      this.Timer = this.$refs.timerInput.value
+      let timeFromInput = this.$refs.timerInput.value
+      this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput } })  // route to TimerAndMessages route, passing in the timer value as a parameter
+
+      
+
+
     },
     resetTimer() {
       this.Timer = 0

@@ -1,8 +1,6 @@
 <template>
   <div class="home">
     <HomePageTimerButton/>
-    <TimerPage/>
-    
   </div>
 </template>
 

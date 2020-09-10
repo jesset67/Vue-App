@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Timer from '../views/Timer.vue'
 import About from '../views/About.vue'
+import TimerAndMessages from '../views/TimerAndMessages.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ Vue.use(VueRouter)
     name: 'Timer',
     component: Timer
   },
+  {
+    path: '/timermessages',
+    name: 'Timer And Messages',
+    component: TimerAndMessages
+  }
 ]
 
 const router = new VueRouter({
