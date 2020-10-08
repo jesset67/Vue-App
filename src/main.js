@@ -2,10 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// for alert
-import VueSimpleAlert from "vue-simple-alert";
 
-Vue.use(VueSimpleAlert);
+import { firestorePlugin } from 'vuefire'
+Vue.use(firestorePlugin)
 
 Vue.config.productionTip = false
 

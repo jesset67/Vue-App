@@ -4,15 +4,14 @@
       <div id="welcome">
         <h1 style="font-size: 7vw;">Welcome, {{ name }}</h1>
       </div>
-
+      <router-link to="/messagesInput">
+      <p>Add messages</p>
+      </router-link>
       <div class="timerCircleContainer">
-            <div id="timerCircle">
 
               <router-link to="/timer">
-                <p class="timerButton">START STUDYING</p>
+               <b> <p class="timerButton">START STUDYING</p> </b>
               </router-link>  
-
-            </div>
         
       </div>
       
@@ -51,6 +50,7 @@ accent color: #fbc531
 /* Header font */ @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@600&display=swap');
 /* secondary font */ @import url('https://fonts.googleapis.com/css2?family=Overlock:wght@900&display=swap');
 /* tertiary font */ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 #main {
   display: flex;
@@ -68,24 +68,18 @@ accent color: #fbc531
 }
 
 .timerCircleContainer {
-  height: 90%;
-  width: 100%;
-  background-color: #9c88ff;
-}
-
-#timerCircle {
-  height: 90%;
+  height: 50%;
   width: 100%;
   background-color: #9c88ff;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  margin-top: 40px;
 }
+
 
 .timerButton {
   background-color: #fbc531;
-  border: solid 2px black;
   color: white;
   border-radius: 50%;
   padding: 50px;
@@ -101,7 +95,8 @@ accent color: #fbc531
   align-items: center;
   text-align: center;
   margin: 50px 2px;
-  font-family: 'Overlock', cursive;
+  font-family: 'Noto Sans JP', sans-serif;
+  border: solid 2px grey;
 }
 
 .timerButton:hover {
@@ -118,6 +113,7 @@ accent color: #fbc531
   font-family: 'Roboto', sans-serif;
   font-size: 4vw;
   margin-bottom: 12px;
+  margin-top: 60%;
 }
 
 .footerContainer {

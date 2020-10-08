@@ -13,7 +13,7 @@
 
 
       <div id="timerContainer">
-        <div class="timer" ref="timer">{{time}}</div>
+        <div class="timer" ref="timer">{{timeToDisplay}}</div>
       </div>
       
 
@@ -21,9 +21,9 @@
 
 
       <div id="stopButtonContainer">
-        <router-link to="/timer">
-        <div class="stopButton" ref="stopButton">stop </div> 
-        </router-link>
+       
+        <div class="stopButton" ref="stopButton" @click="stopTimer()">stop</div> 
+    
       </div>
 
 
@@ -32,38 +32,95 @@
 </template>
 
 <script>
+
 export default {
-  name: 'Timer And Messages',
+  name: 'TimerAndMessages',
   props: {
     
   },
   data() {
     return {
-      time: this.$route.params.time,
-      messagesArray: ['i love you', 'keep going', 'keep it up', 'neva fold', 'stop having a break you lazy ass', 'procrastinating is for the weak'],
-      messages: ''
+      minutes: this.$route.params.time,
+      nextMessageTime: 0,
+      timeInSeconds: this.$route.params.time * 60,
+      timeToDisplay: '',
+      messagesArray: ['i love you', 'keep going', 'keep it up', 'neva fold', 'stop having a break you lazy', 'procrastinating is for the weak'],
+      messages: '',
+      intervals: [],
+      currentMinutes: 0,
+      currentSeconds: 0
     }
   },
-  created() {
-    this.countDownTimer()
+  mounted() {
+    // this calculates the intervals to show messages based on the amount of minutes recieved from router/previous component input
+      var intervalValue = 1
+      for (var i = this.minutes; i > 0; i -= intervalValue ) {
+        this.intervals.push(i)
+      }
+      console.log("this.intervals",this.intervals)
+
+      //start timer
+      this.countDownTimer();
   },
   methods: {
+    //this function calls every second
     countDownTimer() {
-                if(this.time > 0) {
-                    setTimeout(() => {
-                        this.time -= 1
-                        this.countDownTimer()
-                    }, 1000)
-                }
-               
 
-                const random = Math.floor(Math.random() * this.messagesArray.length);
+        if(this.timeInSeconds > 0) {
+            setTimeout(() => {
+                  this.timeInSeconds--;
+                this.countDownTimer()
+            }, 1000)
+        }
+        // this converts our seconds to minutes:seconds
+        this.convertTime(this.timeInSeconds)
+        // this loads message
+        this.loadMessage()
+    },
+    convertTime() {
+        // our time is mins
+        // mins to seconds
+        this.currentMinutes = Math.floor(this.timeInSeconds/60);
+        this.currentSeconds = this.timeInSeconds - this.currentMinutes * 60;
+        console.log(this.currentMinutes + ':' + this.currentSeconds)
+        this.timeToDisplay = this.currentMinutes + ':' + this.currentSeconds;
+    },
+    loadMessage() {
+        // load message every 5 mins
+        // eg. 25.
+        // output msg at 20,15,10,5
+        // console.log("trying to load message")
+        // console.log("this.currentMinutes",this.currentMinutes)
+        // console.log("this.currentSeconds",this.currentSeconds)
+        // console.log("this.intervals[0]",this.intervals[0])
+      
+        if (this.currentMinutes == this.intervals[0] && this.currentSeconds == 0) {
 
-                this.messages = this.messagesArray[random]
+          console.log("showing message")
+          console.log(this.currentMinutes, this.currentSeconds)
+    
+          // remove index 0
+          this.intervals.shift();
+          
+          // motivation messages
+          const random = Math.floor(Math.random() * this.messagesArray.length);
+          this.messages = this.messagesArray[random]
+          
+        }
 
-            }
-  },
+    },
+    stopTimer() {
+      //route back to previous page.
+      var id = window.setTimeout(function() {}, 0);
+      while (id--) {
+          window.clearTimeout(id); // will do nothing if no timeout with id is present
+      }
 
+      this.$router.push({ path: '/timer' })
+
+    }             
+},                          
+  
 }
 </script>
 
@@ -92,10 +149,15 @@ export default {
 }
 
 #stopButtonContainer {
-  height: 30%;
+  height: 10%;
   width: 100%;
   margin-bottom: 10%;
   background-color: #9c88ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 
@@ -110,8 +172,8 @@ export default {
   display: inline-block;
   font-size: 16px;
   border-radius: 7px; 
-  margin: 7px;
   width: 100px;
+  margin-right: 10px;
 }
 
 

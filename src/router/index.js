@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Timer from '../views/Timer.vue'
 import About from '../views/About.vue'
 import TimerAndMessages from '../views/TimerAndMessages.vue'
+import messagesInput from '../views/messagesInput.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ Vue.use(VueRouter)
     path: '/timermessages',
     name: 'Timer And Messages',
     component: TimerAndMessages
+  },
+  {
+    path: '/messagesInput',
+    name: 'Messages Input',
+    component: messagesInput
   }
 ]
 
