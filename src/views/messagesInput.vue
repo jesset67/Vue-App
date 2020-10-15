@@ -43,9 +43,7 @@ export default {
            
           console.log( email, message)
             // Add a new document in collection "cities"
-            db.collection("messages").doc(email).set({
-                message: messsage,
-            })
+            db.collection("messages").doc(email).set({ message: message, })
             .then(function() {
                 console.log("Document successfully written!");
             })

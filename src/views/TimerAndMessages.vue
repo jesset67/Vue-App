@@ -44,7 +44,7 @@ export default {
       nextMessageTime: 0,
       timeInSeconds: this.$route.params.time * 60,
       timeToDisplay: '',
-      messagesArray: ['i love you', 'keep going', 'keep it up', 'neva fold', 'stop having a break you lazy', 'procrastinating is for the weak'],
+      messagesArray: this.$route.params.messages,
       messages: '',
       intervals: [],
       currentMinutes: 0,
@@ -61,6 +61,7 @@ export default {
 
       //start timer
       this.countDownTimer();
+      console.log(this.messagesArray)
   },
   methods: {
     //this function calls every second

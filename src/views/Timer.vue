@@ -33,13 +33,13 @@ export default {
   },
   data() {
     return {
- 
+      nameAndMessages: this.$route.params
     }
   },
   methods: {
     startTimer() {
       let timeFromInput = this.$refs.timerInput.value
-      this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput } })  // route to TimerAndMessages route, passing in the timer value as a parameter
+      this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput, messages: this.nameAndMessages.message } })  // route to TimerAndMessages route, passing in the timer value as a parameter
     },
     resetTimer() {
       this.Timer = 0

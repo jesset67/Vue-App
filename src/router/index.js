@@ -5,14 +5,15 @@ import Timer from '../views/Timer.vue'
 import About from '../views/About.vue'
 import TimerAndMessages from '../views/TimerAndMessages.vue'
 import messagesInput from '../views/messagesInput.vue'
+import login from '../views/login.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'login',
+    component: login
   },
   {
     path: '/about',
@@ -33,6 +34,12 @@ Vue.use(VueRouter)
     path: '/messagesInput',
     name: 'Messages Input',
     component: messagesInput
+  },
+  {
+    path: '/Home',
+    name: 'Home',
+    component: Home,
+    props: true 
   }
 ]
 
