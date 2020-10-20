@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
 import {db} from '../components/firebase'
 export default {
   name: "messagesInput",
@@ -43,7 +44,7 @@ export default {
            
           console.log( email, message)
             // Add a new document in collection "cities"
-            db.collection("messages").doc(email).set({ message: message, })
+            db.collection("messages").doc(email).update({ messages: firebase.firestore.FieldValue.arrayUnion(message), })
             .then(function() {
                 console.log("Document successfully written!");
             })

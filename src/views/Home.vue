@@ -2,11 +2,8 @@
 <div id="main">
 
       <div id="welcome">
-        <h1 style="font-size: 7vw;">Welcome, {{ userEmail }}</h1>
+        <h1 style="font-size: 7vw;">Welcome, {{ name }}</h1>
       </div>
-      <router-link to="/messagesInput">
-      <p>Add messages</p>
-      </router-link>
       <div class="timerCircleContainer">
 
               
@@ -31,10 +28,8 @@ export default {
     // 1. go to firebase and get user with this email.
     console.log('from home mounted ' + this.userEmail)
     db.collection('messages').doc(this.userEmail).get().then((doc) => {
-      const docFromFB = doc.data();
-      this.name = docFromFB.name;
-      this.message = docFromFB.message;
-      this.nameAndMessages = doc.data();
+      this.name = doc.data().name;
+      this.messages = doc.data().messages;
     } )
 
 
@@ -42,7 +37,8 @@ export default {
   data() {
     return {
       userEmail: this.$route.params.email,
-      nameAndMessages: null
+      name: '',
+      messages: []
     }
   },
   methods: {
@@ -52,7 +48,7 @@ export default {
 });
     },
     submitData() {
-      this.$router.push({name: 'Timer', params: this.nameAndMessages})
+      this.$router.push({name: 'Timer', params: {name: this.name, messages: this.messages}})
     }
   } 
 }
@@ -85,7 +81,7 @@ accent color: #fbc531
 }
 
 .timerCircleContainer {
-  height: 50%;
+  height: 40%;
   width: 100%;
   background-color: #9c88ff;
   display: flex;

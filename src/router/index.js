@@ -6,6 +6,7 @@ import About from '../views/About.vue'
 import TimerAndMessages from '../views/TimerAndMessages.vue'
 import messagesInput from '../views/messagesInput.vue'
 import login from '../views/login.vue'
+import createNew from '../views/createNew.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home,
     props: true 
+  },
+  {
+    path: '/createNew',
+    name: 'Create New',
+    component: createNew
   }
 ]
 

@@ -48,10 +48,12 @@ export default {
       messages: '',
       intervals: [],
       currentMinutes: 0,
-      currentSeconds: 0
+      currentSeconds: 0,
+      name: this.$route.params.name
     }
   },
   mounted() {
+
     // this calculates the intervals to show messages based on the amount of minutes recieved from router/previous component input
       var intervalValue = 1
       for (var i = this.minutes; i > 0; i -= intervalValue ) {
@@ -61,7 +63,7 @@ export default {
 
       //start timer
       this.countDownTimer();
-      console.log(this.messagesArray)
+      console.log("messages from db", this.messagesArray)
   },
   methods: {
     //this function calls every second
