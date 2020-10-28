@@ -24,7 +24,8 @@
   </div>
 
 </template>
-
+<!-- One of the cool features of Vue is the router, which handles all page navigation and you can use it to pass data between pages. 
+     I did this to pass the time entered from the ‘enterTime’ view to the ‘timerCountdown’ component.  -->
 <script>
 export default {
   name: 'Timer',

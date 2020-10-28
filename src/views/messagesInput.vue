@@ -16,7 +16,8 @@
             <div id="submitContainer">
                 <input @click="saveMessage()" id="submit" type="submit" value="Add">
             </div>
-
+            <br>
+            <p class="success" ref="successMsg"></p>
         </div>
     </div>
 
@@ -26,6 +27,7 @@
 <script>
 import firebase from 'firebase/app'
 import {db} from '../components/firebase'
+
 export default {
   name: "messagesInput",
   props: {
@@ -47,11 +49,12 @@ export default {
             db.collection("messages").doc(email).update({ messages: firebase.firestore.FieldValue.arrayUnion(message), })
             .then(function() {
                 console.log("Document successfully written!");
+                
             })
             .catch(function(error) {
                 console.error("Error writing document: ", error);
             });
-
+            this.$refs.successMsg.innerHTML = "Message successfully delivered!";
       }
   }
 } 
@@ -129,5 +132,9 @@ export default {
     justify-content: center;
     height: 50%;
     border: solid 2px pink;
+}
+
+.success {
+    color: limegreen;
 }
 </style>

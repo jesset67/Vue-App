@@ -1,24 +1,14 @@
 <template>
 
     <div id="main">
-
-      <!-- create an area here for msg's. give it a ref: ref="refName" -->
      
         <div id="messagesContainer">
           <div class="messages" ref="messages">{{messages}}</div>
         </div>
 
-
-      <!-- create an area here for timer. give it a ref: ref="refName" -->
-
-
       <div id="timerContainer">
         <div class="timer" ref="timer">{{timeToDisplay}}</div>
       </div>
-      
-
-      <!-- create an area here for stop button. give it a ref: ref="refName" -->
-
 
       <div id="stopButtonContainer">
        
@@ -101,13 +91,13 @@ export default {
 
           console.log("showing message")
           console.log(this.currentMinutes, this.currentSeconds)
-    
-          // remove index 0
-          this.intervals.shift();
           
           // motivation messages
           const random = Math.floor(Math.random() * this.messagesArray.length);
           this.messages = this.messagesArray[random]
+
+           // remove index 0
+          this.intervals.shift();
           
         }
 

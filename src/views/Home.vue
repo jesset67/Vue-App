@@ -2,12 +2,12 @@
 <div id="main">
 
       <div id="welcome">
-        <h1 style="font-size: 7vw;">Welcome, {{ name }}</h1>
+        <h1 style="font-size: 7vw;">Welcome, 👋 {{ name }}</h1>
       </div>
       <div class="timerCircleContainer">
 
               
-               <b> <p class="timerButton" @click="submitData()">START STUDYING</p> </b>
+               <b> <p class="timerButton" @click="submitData()">START STUDYING🎓 </p> </b>
                
         
       </div>

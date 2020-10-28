@@ -2,17 +2,24 @@
     <div id='main'>
         <div id="loginContainer">
             <div class="loginTxt">
-                <p>Enter Email and Password of new user</p>
+                <div id="header">
+                <b>Enter Email and Password of new user</b>
+                </div>
+                <br>
+                <div id="labels">
                 <label for="nameBox">Name: </label>
                 <input ref="nameBox" type="text" class="nameBox" name="nameBox">
+                <br> 
                 <label for="emailBox">Email: </label>
                 <input ref="emailBox" type="text" class="emailBox" name="emailBox">
                 <br>
                 <label for="passwordBox">Password: </label>
-                <input ref="passwordBox" type="text" class="passwordBox" name="passwordBox">
-                <br><br>                
+                <input ref="passwordBox" type="password" class="passwordBox" name="passwordBox">
+                </div>
+                <br>  
+                <br>             
                 <div class="buttonloginContainer">
-                <input @click="createNewUser()" id="login" value="Create">
+                <button @click="createNewUser()" id="create">Create</button>
                 </div>
             </div>
         </div>
@@ -60,6 +67,12 @@ export default {
     flex-direction: column;
     align-items: center;
     background-color: #9c88ff;
+    color: black;
+}
+#header {
+    height: 20%;
+    width: 100%;
+    margin-top: 30px;
 }
 #loginContainer {
     width: 100%;
@@ -68,19 +81,62 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 12px;
 }
 .loginTxt {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    align-items: center;
+    width: 100%;
 }
 
-#login {
-    height: 40px;
-    width: 60%;
-    text-align: center;
-    font-size: 1em;
+#labels {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 10px;
 }
 
+input[type=text]:focus {
+  background-color: lightblue;
+}
 
+input[type=password]:focus {
+    background-color: pink
+}
+
+.nameBox {
+    height: 25px;
+}
+
+.emailBox {
+    height: 25px;
+}
+
+.passwordBox {
+    height: 25px;
+}
+
+.buttonLoginContainer {
+    width: 100%;
+    border: solid 2px green;
+    height: 100%;
+}
+
+#create {
+    width: 25vw;
+    height: 5vh;
+    border-radius: 8px;
+    border: none;
+}
+
+input {
+    border: none;
+    border-radius: 6px;
+
+    box-shadow: inset 0 0 5px #000000;
+    -moz-box-shadow: inset 0 0 5px #000000;
+    -webkit-box-shadow: inset 0 0 5px #000000;
+    background: white;
+}
 </style>

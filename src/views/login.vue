@@ -2,26 +2,36 @@
     <div id='main'>
         <div id="loginContainer">
             <div class="loginTxt">
+                <div id="labels">
                 <label for="email">Email: </label>
                 <input ref="emailBox" type="text" class="emailBox" name="emailBox">
                 <br>
                 <label for="password">Password: </label>
-                <input ref="passwordBox" type="password" class="passwordBox" name="passwordBox">
+                <input ref="passwordBox" type="password" class="passwordBox" name="passwordBox"> 
+                </div>
                 <br><br>    
-                <p class="error" ref="errorMsg"></p>            
+                <b class="error" ref="errorMsg"></b>            
                 <div class="buttonsContainer">
-                <button @click="login()" id="studyLogin" value="Study">Study</button>
+                <button @click="login()" id="studyLogin" value="Study">Study 📝</button>
        
-                <button @click="sendMsgs()" id="sendMsgLogin" value="Send Message">Send Message</button>
+                <button @click="sendMsgs()" id="sendMsgLogin" value="Send Message">Send Message 📩</button>
                 
-                <button @click="createAcc()" id="createAcc" value="Create Account">Create Account</button>
+                <button @click="createAcc()" id="createAcc" value="Create Account">Create Account ➕</button>
                 </div>  
             </div>
         </div>
     </div>
 </template>
 <script>
+
 import {db} from '../components/firebase'
+// S = State your argument
+// E = Explain your point
+// X = eXample to demonstrate
+// Y = whY this matters to your audience/end users.
+
+// //  console.log() to output data/variables/objects to help you identify what is happening, what value is stored in that variable/array/object at the point in the program
+// this helps you identify bugs and fix them
 export default {
     name: 'Login',
     props: {
@@ -103,6 +113,24 @@ export default {
 }
 </script>
 <style scoped>
+button {
+    background-color: rgb(235, 235, 235);
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+button:hover {
+    /* background: #DA22FF;  /* fallback for old browsers 
+    /* background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #9733EE, #DA22FF); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-color: #6314ca;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 #main {
     width: 100vw;
     height: 100vh;
@@ -113,7 +141,7 @@ export default {
 }
 #loginContainer {
     width: 100%;
-    height: 50%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,16 +151,23 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 70%;
+    width: 100%;
     text-align: center;
     margin-top: 20px;
     align-content: center;
 }
 
-
+#labels {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 30%;
+    flex-direction: column;
+}
 
 .buttonsContainer {
-    height: 60%;
+    height: 75%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -146,24 +181,44 @@ export default {
     text-align: center;
     font-size: 1em;
     height: 30px;
-    width: 66%;
+    width: 60%;
 }
 
 #sendMsgLogin {
     text-align: center;
     font-size: 1em;
     height: 30px;
-    width: 66%;
+    width: 60%;
 }
 
 #createAcc {
     text-align: center;
     font-size: 1em;
     height: 30px;
-    width: 66%;
+    width: 60%;
 }
 
 .error {
     color: red;
+}
+
+input {
+    border: none;
+    border-radius: 6px;
+
+    box-shadow: inset 0 0 5px #000000;
+    -moz-box-shadow: inset 0 0 5px #000000;
+    -webkit-box-shadow: inset 0 0 5px #000000;
+    background: white;
+}
+
+.emailBox {
+    height: 25px;
+    width: 65%;
+}
+
+.passwordBox {
+    height: 25px;
+    width: 65%;
 }
 </style>
