@@ -34,10 +34,11 @@ export default {
     },
     data() {
         return {
-            name: 'Vikiani'
+            
         }
     },
     methods: {
+        // This function creates a new user, and pushes the data from the website to the database where it is stored. 
         createNewUser() {
             const emailInput = this.$refs.emailBox.value;
             const passwordInput = this.$refs.passwordBox.value;

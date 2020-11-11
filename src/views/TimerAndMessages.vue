@@ -1,15 +1,15 @@
 <template>
 
     <div id="main">
-      // This container has the messages in it. 
+      <!-- This container has the messages in it. --> 
         <div id="messagesContainer">
           <div class="messages" ref="messages">{{messages}}</div>
         </div>
-      // This container has my timer in it
+      <!-- This container has my timer in it -->
       <div id="timerContainer">
         <div class="timer" ref="timer">{{timeToDisplay}}</div>
       </div>
-      // This container has the stop button in it. 
+      <!-- This container has the stop button in it. --> 
       <div id="stopButtonContainer">
         <div class="stopButton" ref="stopButton" @click="stopTimer()">stop</div> 
       </div>
@@ -30,12 +30,12 @@ export default {
       minutes: this.$route.params.time,               // This variable contains the time the user inputted on the previous 'Timer' page.                     
       timeInSeconds: this.$route.params.time * 60,    // This variable contains the time that the user inputted on the previous 'Timer' page, and is multiplied by 60 to get the time in seconds.
       timeToDisplay: '',                              // This variable contains an empty string as it is flexible (changes) depending on what the user has inputted for their time.
-      messagesArray: this.$route.params.messages,     // This variable 
-      messages: '',                                   // This variable
-      intervals: [],                                  // This variable
-      currentMinutes: 0,                              // This variable
+      messagesArray: this.$route.params.messages,     // This variable contains an array routered from the previous 'Timer' page.
+      messages: '',                                   // This variable contains an empty string that will be created from the user's messages array and displayed while the user is studying.
+      intervals: [],                                  // This variable contains an empty array. As it is a flexible array that counts the number of intervals from the user's inputted time (e.g. (20, 19, 18 etc)).
+      currentMinutes: 0,                              // This variable 
       currentSeconds: 0,                              // This variable
-      name: this.$route.params.name                   // This variable
+      name: this.$route.params.name                   // This variable contains the name of the user, from the previous 'Timer' page.
     }
   },
   mounted() {
@@ -78,11 +78,7 @@ export default {
         // load message every 5 mins
         // eg. 25.
         // output msg at 20,15,10,5
-        // console.log("trying to load message")
-        // console.log("this.currentMinutes",this.currentMinutes)
-        // console.log("this.currentSeconds",this.currentSeconds)
-        // console.log("this.intervals[0]",this.intervals[0])
-      
+        
         if (this.currentMinutes == this.intervals[0] && this.currentSeconds == 0) {
 
           console.log("showing message")

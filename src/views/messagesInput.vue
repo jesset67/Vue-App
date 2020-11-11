@@ -1,18 +1,18 @@
 <template>
     <div id="main">
         <div id="input">
-
+            <!-- div for email input -->
             <div id="email">   
              <b><label for="email">Email: </label></b>
                 <input ref="emailBox" type="text" class="emailBox" name="emailBox">
             </div>
-           
+           <!-- div for message input -->
             <div id="messageInput">
                 <b><label for="message">Message: </label></b>
                 <textarea ref="message" name="paragraph_text" cols="30" rows="4"></textarea>
                
             </div>
-
+            <!-- div for submit Container -->
             <div id="submitContainer">
                 <input @click="saveMessage()" id="submit" type="submit" value="Add">
             </div>
@@ -45,7 +45,7 @@ export default {
           const message = this.$refs.message.value
            
           console.log( email, message)
-            // Add a new document in collection "cities"
+            // Add a new document in collection "message", within Firebase.
             db.collection("messages").doc(email).update({ messages: firebase.firestore.FieldValue.arrayUnion(message), })
             .then(function() {
                 console.log("Document successfully written!");
@@ -54,6 +54,7 @@ export default {
             .catch(function(error) {
                 console.error("Error writing document: ", error);
             });
+            // Alerts user that the message was successfully sent.
             this.$refs.successMsg.innerHTML = "Message successfully delivered!";
       }
   }

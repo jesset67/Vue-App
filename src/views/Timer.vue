@@ -9,13 +9,11 @@
     </div> 
         
       <div id="startButtonContainer">
-
           <input ref="timerInput" type="number" class="timerInput">
 
+        <!-- This div contains the buttons on the page. -->
         <div class="buttons">
-
           <button class="startButton" @click="startTimer">Start</button>
-
           <button class="resetButton" @click="resetTimer">Reset</button>
         </div>
 
@@ -24,8 +22,7 @@
   </div>
 
 </template>
-<!-- One of the cool features of Vue is the router, which handles all page navigation and you can use it to pass data between pages. 
-     I did this to pass the time entered from the ‘enterTime’ view to the ‘timerCountdown’ component.  -->
+
 <script>
 export default {
   name: 'Timer',
@@ -34,15 +31,17 @@ export default {
   },
   data() {
     return {
-      name: this.$route.params.name,
-      messages: this.$route.params.messages
+      name: this.$route.params.name,          // This variable contains the user's name routered from the previous page. 
+      messages: this.$route.params.messages   // This variable contains the messages that the user will see on the next page (motivational messages found at the top).
     }
   },
   methods: {
+    // Function pushes the inputted time to the next page. 
     startTimer() {
       let timeFromInput = this.$refs.timerInput.value
       this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput, messages: this.messages, name: this.name } })  // route to TimerAndMessages route, passing in the timer value as a parameter
     },
+    // This function resets the time in the input to 0 or null. 
     resetTimer() {
       this.Timer = 0
       this.$refs.timerInput.value = ''

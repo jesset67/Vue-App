@@ -3,15 +3,18 @@
         <div id="loginContainer">
             <div class="loginTxt">
                 <div id="labels">
+                <!-- container for email input -->
                 <label for="email">Email: </label>
                 <input ref="emailBox" type="text" class="emailBox" name="emailBox">
                 <br>
+                <!-- container for password -->
                 <label for="password">Password: </label>
                 <input ref="passwordBox" type="password" class="passwordBox" name="passwordBox"> 
                 </div>
                 <br><br>    
                 <b class="error" ref="errorMsg"></b>            
                 <div class="buttonsContainer">
+                <!-- buttons for different functions to send user to a different page. -->
                 <button @click="login()" id="studyLogin" value="Study">Study 📝</button>
        
                 <button @click="sendMsgs()" id="sendMsgLogin" value="Send Message">Send Message 📩</button>
@@ -22,16 +25,9 @@
         </div>
     </div>
 </template>
+
 <script>
-
 import {db} from '../components/firebase'
-// S = State your argument
-// E = Explain your point
-// X = eXample to demonstrate
-// Y = whY this matters to your audience/end users.
-
-// //  console.log() to output data/variables/objects to help you identify what is happening, what value is stored in that variable/array/object at the point in the program
-// this helps you identify bugs and fix them
 export default {
     name: 'Login',
     props: {
@@ -39,16 +35,15 @@ export default {
     },
     data() {
         return {
-            name: 'Vikiani'
+           
         }
     },
     methods: {
         login() {
-            const emailInput = this.$refs.emailBox.value;
+            const emailInput = this.$refs.emailBox.value; 
             const passwordInput = this.$refs.passwordBox.value;
 
-           // console.log(email, password);
-
+           // checks whether user's input is correct.
            db.collection("messages").where("email", "==", emailInput)
             .get()
             .then((querySnapshot) => {

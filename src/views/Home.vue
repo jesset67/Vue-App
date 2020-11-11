@@ -1,17 +1,14 @@
 <template>
 <div id="main">
-
+      <!-- This div contains the 'welcome' container -->
       <div id="welcome">
         <h1 style="font-size: 7vw;">Welcome, 👋 {{ name }}</h1>
       </div>
+      <!-- This div contains the timer circle container -->
       <div class="timerCircleContainer">
-
-              
-               <b> <p class="timerButton" @click="submitData()">START STUDYING🎓 </p> </b>
-               
-        
+          <b><p class="timerButton" @click="submitData()">START STUDYING🎓</p></b>
       </div>
-      
+      <!-- This container contains the footer -->
       <div class="footerContainer">
         <h1 class="footer">Made with ❤️ at Tai Wananga Tu Toa.</h1>
       </div>
@@ -36,17 +33,13 @@ export default {
   },
   data() {
     return {
-      userEmail: this.$route.params.email,
-      name: '',
-      messages: []
+      userEmail: this.$route.params.email,    // This variable contains the user's email from the previous page. 
+      name: '',                               // This variable is an empty string that is the name of the user. It is flexible and changes depending on who logged in. 
+      messages: []                         
     }
   },
   methods: {
-    getName() {
-      this.$prompt("Input your name").then((text) => {
-      
-});
-    },
+    // Pushes data to next page, 'Timer'.
     submitData() {
       this.$router.push({name: 'Timer', params: {name: this.name, messages: this.messages}})
     }
