@@ -1,21 +1,18 @@
 <template>
 
     <div id="main">
-     
+      // This container has the messages in it. 
         <div id="messagesContainer">
           <div class="messages" ref="messages">{{messages}}</div>
         </div>
-
+      // This container has my timer in it
       <div id="timerContainer">
         <div class="timer" ref="timer">{{timeToDisplay}}</div>
       </div>
-
+      // This container has the stop button in it. 
       <div id="stopButtonContainer">
-       
         <div class="stopButton" ref="stopButton" @click="stopTimer()">stop</div> 
-    
       </div>
-
 
     </div>
 
@@ -30,16 +27,15 @@ export default {
   },
   data() {
     return {
-      minutes: this.$route.params.time,
-      nextMessageTime: 0,
-      timeInSeconds: this.$route.params.time * 60,
-      timeToDisplay: '',
-      messagesArray: this.$route.params.messages,
-      messages: '',
-      intervals: [],
-      currentMinutes: 0,
-      currentSeconds: 0,
-      name: this.$route.params.name
+      minutes: this.$route.params.time,               // This variable contains the time the user inputted on the previous 'Timer' page.                     
+      timeInSeconds: this.$route.params.time * 60,    // This variable contains the time that the user inputted on the previous 'Timer' page, and is multiplied by 60 to get the time in seconds.
+      timeToDisplay: '',                              // This variable contains an empty string as it is flexible (changes) depending on what the user has inputted for their time.
+      messagesArray: this.$route.params.messages,     // This variable 
+      messages: '',                                   // This variable
+      intervals: [],                                  // This variable
+      currentMinutes: 0,                              // This variable
+      currentSeconds: 0,                              // This variable
+      name: this.$route.params.name                   // This variable
     }
   },
   mounted() {
@@ -68,7 +64,7 @@ export default {
         // this converts our seconds to minutes:seconds
         this.convertTime(this.timeInSeconds)
         // this loads message
-        this.loadMessage()
+        this.loadMessage()  
     },
     convertTime() {
         // our time is mins

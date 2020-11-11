@@ -25,7 +25,7 @@
         </div>
     </div>
 </template>
-<script>
+<script>        
 import {db} from '../components/firebase'
 export default {
     name: 'Login',
