@@ -33,8 +33,8 @@ export default {
       messagesArray: this.$route.params.messages,     // This variable contains an array routered from the previous 'Timer' page.
       messages: '',                                   // This variable contains an empty string that will be created from the user's messages array and displayed while the user is studying.
       intervals: [],                                  // This variable contains an empty array. As it is a flexible array that counts the number of intervals from the user's inputted time (e.g. (20, 19, 18 etc)).
-      currentMinutes: 0,                              // This variable 
-      currentSeconds: 0,                              // This variable
+      currentMinutes: 0,                              
+      currentSeconds: 0,                              
       name: this.$route.params.name                   // This variable contains the name of the user, from the previous 'Timer' page.
     }
   },
@@ -60,7 +60,7 @@ export default {
                   this.timeInSeconds--;
                 this.countDownTimer()
             }, 1000)
-        }
+        } 
         // this converts our seconds to minutes:seconds
         this.convertTime(this.timeInSeconds)
         // this loads message

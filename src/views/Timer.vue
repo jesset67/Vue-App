@@ -16,7 +16,10 @@
           <button class="startButton" @click="startTimer">Start</button>
           <button class="resetButton" @click="resetTimer">Reset</button>
         </div>
-
+        <br>
+        <div id='errorContainer'>
+          <b id="error" ref="errorMsg"></b>
+        </div>
       </div>
   </div>
   </div>
@@ -39,7 +42,12 @@ export default {
     // Function pushes the inputted time to the next page. 
     startTimer() {
       let timeFromInput = this.$refs.timerInput.value
-      this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput, messages: this.messages, name: this.name } })  // route to TimerAndMessages route, passing in the timer value as a parameter
+     if (timeFromInput > 0) {
+       this.$router.push({ name: 'Timer And Messages', params: { time: timeFromInput, messages: this.messages, name: this.name } }) 
+       } else {
+          this.$refs.errorMsg.innerHTML = "Please input a larger number"
+       }
+         // route to TimerAndMessages route, passing in the timer value as a parameter 
     },
     // This function resets the time in the input to 0 or null. 
     resetTimer() {
@@ -136,4 +144,7 @@ export default {
   margin-top: 20px;
 }
 
+#error {
+  color: rgb(206, 44, 44);
+}
 </style>
